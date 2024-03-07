@@ -12,7 +12,7 @@ public interface IProductoService {
 
     public List<Producto> getProductos();
 
-    public void saveProducto(Producto producto);
+    public Producto saveProducto(Producto producto);
 
     public void deleteProducto(Long id);
 
@@ -20,7 +20,7 @@ public interface IProductoService {
     
     public Producto findProductoPorNombre(String nombre);
 
-    public void editProducto(Producto producto);
+    public Producto editProducto(Producto producto);
     
     public List<Producto> ordenarMayorMenor();
     

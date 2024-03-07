@@ -12,12 +12,24 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * La clase ProductoService implementa toda la logica
+ * para manipular los {@link Producto}
+ * @author Yonathan
+ *
+ */
 @Service
 public class ProductoService implements IProductoService {
 
     @Autowired
     private IProdcutoRepository productoRepo;
 
+    /**
+     *@author yonathan
+     * @return Retorna toda la lista de productos de la base de datos lista de prodcutos
+     * @throws ListaVaciaException lanza una excepcion en caso de que la lista este vacia
+     *
+     */
     @Override
     public List<Producto> getProductos() {
         List<Producto> listaProductos = productoRepo.findAll();
@@ -30,10 +42,15 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public void saveProducto(Producto producto) {
+    public Producto saveProducto(Producto producto) {
         productoRepo.save(producto);
+        return producto;
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void deleteProducto(Long id) {
         productoRepo.deleteById(id);
@@ -50,10 +67,17 @@ public class ProductoService implements IProductoService {
     }
 
     @Override
-    public void editProducto(Producto producto) {
+    public Producto editProducto(Producto producto) {
         this.saveProducto(producto);
+        return producto;
     }
 
+    /**
+     *
+     * @param  nombre
+     * @return Un producto encontrado por nombre
+     * @throws RegistroNullException
+     */
     @Override
     public Producto findProductoPorNombre(String nombre) {
         List<Producto> listaProducto = productoRepo.findAll();
@@ -67,6 +91,13 @@ public class ProductoService implements IProductoService {
         throw new RegistroNullException("El producto que estas buscando no existe");
     }
 
+    /**
+     * Ordena la lista de productos de mayor a menor precio.
+     *
+     * @author Yona
+     * @return Una lista de productos ordenada de mayor a menor precio.
+     * @throws ListaVaciaException Si la lista de productos está vacía.
+     */
     @Override
     public List<Producto> ordenarMayorMenor() {
         List<Producto> listaProductos = productoRepo.findAll();

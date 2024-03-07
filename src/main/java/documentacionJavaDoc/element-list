@@ -1,0 +1,11 @@
+com.albino.PayGoal
+com.albino.PayGoal.controller
+com.albino.PayGoal.controller.programacionFuncional.imperativa
+com.albino.PayGoal.controller.programacionFuncional.superFunciones_clases
+com.albino.PayGoal.controller.programacionFuncional.superFunciones_clases.clases
+com.albino.PayGoal.controller.programacionFuncional.superFunciones_clases.interfaces
+com.albino.PayGoal.excepciones
+com.albino.PayGoal.model
+com.albino.PayGoal.repository
+com.albino.PayGoal.service
+com.albino.PayGoal.swagger
